@@ -1,0 +1,53 @@
+button img {
+    width: 20px
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #beffe1;
+    border-color: #ffa32b;
+}
+
+.card-text {
+    border-radius: 5px;
+    padding: 15px;
+    border: 1px solid gainsboro;
+}
+
+.card-img-top {
+    border-radius: 5px;
+    border: 3px solid gainsboro;
+}
+
+.card {
+    border: none
+}
+
+#siguienteBroma {
+    width: 100%;
+    padding: 20px;
+    font-size: xx-large;
+}
+
+#toggle {
+    display: none
+}
+.weather p{
+    font-size: small;
+}
+.weather img{
+    margin: auto;
+    display: block;
+    width: 100px;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid gainsboro;
+}
+.weather{
+    text-align:center;
+    border: 1px solid gainsboro;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}

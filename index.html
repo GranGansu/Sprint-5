@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="src/index.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>BROMITAS</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card pt-2 col-12 col-sm-6">
+                <h1 style="text-align: center;transform: rotate(5deg);">dad<span
+                        style="font-size: 60px;color: rebeccapurple;">jokes</span> </h1>
+                <img src="img/humor.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title mt-2 mb-4">Puntúa las siguientes bromas</h5>
+                    <button id="siguienteBroma" class="btn btn-primary">Comenzar</button>
+                    <div id="toggle">
+                        <p class="card-text" id="broma"></p>
+                        <div class="text-center">
+                            <button class="btn btn-success rating" onclick="rating(1)"><img src="img/star.png"
+                                    alt=""></button>
+                            <button class="btn btn-success rating" onclick="rating(2)"><img src="img/star.png"
+                                    alt=""><img src="img/star.png" alt=""></button>
+                            <button class="btn btn-success rating" onclick="rating(3)"><img src="img/star.png"
+                                    alt=""><img src="img/star.png" alt=""><img src="img/star.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="weather"><img src="img/tiempo.png" alt="">
+                    <h6>Hoy en Barcelona</h6>
+                    <p id="tiempo"></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

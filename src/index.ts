@@ -1,4 +1,9 @@
-const reportAcudits = []
+interface RatingBroma {
+  joke: string;
+  score: number;
+  date: string;
+}
+const reportAcudits:RatingBroma[] = []
 var bromaActual: string;
 var broma: any;
 var tiempo: any;
@@ -17,7 +22,6 @@ window.onload = () => {
 }
 function getBroma(): void {
   var tipoBroma = ['https://v2.jokeapi.dev/joke/Any?lang=es&type=single', 'https://icanhazdadjoke.com/']
-  console.log(alternar);
   fetch(tipoBroma[alternar], { headers: { accept: 'application/json' } })
     .then(response => response.json())
     .then(json => {
@@ -28,7 +32,8 @@ function getBroma(): void {
 }
 function rating(number: number): void {
   var date = new Date().toISOString();
-  reportAcudits.push({ joke: bromaActual, score: number, date: date })
+  var ratingBroma: RatingBroma = { joke: bromaActual, score: number, date: date}
+  reportAcudits.push(ratingBroma);
   getBroma();
   console.table(reportAcudits);
 }

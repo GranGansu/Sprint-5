@@ -3,7 +3,7 @@ var bromaActual;
 var broma;
 var tiempo;
 var alternar = 0;
-window.onload = () => {
+window.onload = function () {
     broma = document.getElementById('broma');
     var botonBroma = document.getElementById('siguienteBroma');
     var toggle = document.getElementById('toggle');
@@ -13,16 +13,16 @@ window.onload = () => {
         botonBroma.style.display = 'none';
         getBroma();
     });
-    getTiempoHoy(8);
+    getTiempoHoy(8, 8019);
 };
 function getBroma() {
     var tipoBroma = ['https://v2.jokeapi.dev/joke/Any?lang=es&type=single', 'https://icanhazdadjoke.com/'];
     fetch(tipoBroma[alternar], { headers: { accept: 'application/json' } })
         .then(function (response) { return response.json(); })
         .then(function (json) {
-            bromaActual = json.joke;
-            broma.innerHTML = json.joke;
-        });
+        bromaActual = json.joke;
+        broma.innerHTML = json.joke;
+    });
     alternar = ((alternar == 0) ? 1 : 0);
 }
 function rating(number) {
@@ -32,10 +32,12 @@ function rating(number) {
     getBroma();
     console.table(reportAcudits);
 }
-function getTiempoHoy(provincia) {
-    fetch('https://www.el-tiempo.net/api/json/v2/provincias/' + 0 + provincia)
+function getTiempoHoy(provincia, ciudad) {
+    fetch('https://www.el-tiempo.net/api/json/v2/provincias/' + 0 + provincia + '/municipios/0' + ciudad)
         .then(function (response) { return response.json(); })
         .then(function (json) {
-            tiempo.innerHTML = json.today.p;
-        });
+        var temperatura = json.temperatura_actual;
+        var estado = "<img src=\"img/".concat(json.stateSky.description.toLowerCase(), ".png\">");
+        tiempo.innerHTML = estado + ' ' + '| ' + temperatura + 'º';
+    });
 }

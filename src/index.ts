@@ -3,7 +3,7 @@ interface RatingBroma {
   score: number;
   date: string;
 }
-const reportAcudits:RatingBroma[] = []
+const reportAcudits: RatingBroma[] = []
 var bromaActual: string;
 var broma: any;
 var tiempo: any;
@@ -18,7 +18,7 @@ window.onload = () => {
     botonBroma.style.display = 'none';
     getBroma()
   })
-  getTiempoHoy(8)
+  getTiempoHoy(8, 8019)
 }
 function getBroma(): void {
   var tipoBroma = ['https://v2.jokeapi.dev/joke/Any?lang=es&type=single', 'https://icanhazdadjoke.com/']
@@ -32,15 +32,17 @@ function getBroma(): void {
 }
 function rating(number: number): void {
   var date = new Date().toISOString();
-  var ratingBroma: RatingBroma = { joke: bromaActual, score: number, date: date}
+  var ratingBroma: RatingBroma = { joke: bromaActual, score: number, date: date }
   reportAcudits.push(ratingBroma);
   getBroma();
   console.table(reportAcudits);
 }
-function getTiempoHoy(provincia: number) {
-  fetch('https://www.el-tiempo.net/api/json/v2/provincias/' + 0 + provincia)
+function getTiempoHoy(provincia: number, ciudad: number) {
+  fetch('https://www.el-tiempo.net/api/json/v2/provincias/' + 0 + provincia + '/municipios/0' + ciudad)
     .then(response => response.json())
     .then(json => {
-      tiempo.innerHTML = json.today.p;
+      const temperatura: string = json.temperatura_actual
+      var estado: string = `<img src="img/${json.stateSky.description.toLowerCase()}.png">`
+      tiempo.innerHTML = estado + ' ' + '| ' + temperatura + 'º';
     })
 }
